@@ -15,9 +15,9 @@ public class AccountRecord {
     private String accountName;
     private AccountType accountType;
     private String contentType;
-    private String Note;
-    private BigDecimal Amount;
-    private LocalDate RecordingTime;
+    private String note;
+    private BigDecimal amount;
+    private LocalDate recordTime;
 
     @Override
     public String toString() {
@@ -25,9 +25,9 @@ public class AccountRecord {
                 "accountName=" + accountName +
                 ", accountType=" + accountType +
                 ", contentType='" + contentType + '\'' +
-                ", Note='" + Note + '\'' +
-                ", Amount=" + Amount +
-                ", RecordingTime=" + RecordingTime +
+                ", Note='" + note + '\'' +
+                ", Amount=" + amount +
+                ", RecordingTime=" + recordTime +
                 '}';
     }
 }

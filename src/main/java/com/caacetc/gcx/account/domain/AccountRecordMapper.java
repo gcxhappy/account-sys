@@ -10,7 +10,5 @@ import java.util.List;
 public interface AccountRecordMapper {
     List<AccountRecord> queryAllRecords();
 
-    List<AccountRecord> queryAllRecordsBy(int month);
-
     void addRecord(AccountRecord record);
 }

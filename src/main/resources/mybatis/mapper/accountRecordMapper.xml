@@ -6,4 +6,9 @@
     <select id="queryAllRecords" resultType="AccountRecord">
         select * from AccountRecord
     </select>
+
+    <insert id="addRecord" parameterType="AccountRecord">
+        insert into AccountRecord values
+          (#[accountName], #[accountType], #[contentType],#[note],#[amount],#[recordTime])
+    </insert>
 </mapper>

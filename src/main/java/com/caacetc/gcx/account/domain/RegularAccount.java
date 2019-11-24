@@ -27,7 +27,7 @@ public class RegularAccount extends Account {
 
     private BigDecimal caculateBy(int month, AccountType type) {
         return accountRecords.stream()
-                .filter(record -> record.getRecordingTime().getMonthValue() == month)
+                .filter(record -> record.getRecordTime().getMonthValue() == month)
                 .filter(record -> record.getAccountType() == type)
                 .map(AccountRecord::getAmount)
                 .reduce(BigDecimal.ZERO, (a, b) -> a.add(b));

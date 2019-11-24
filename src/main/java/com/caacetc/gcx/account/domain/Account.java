@@ -39,7 +39,7 @@ public abstract class Account {
 
     public List<AccountRecord> getRecordsBy(int month) {
         return accountRecords.stream()
-                .filter(record -> record.getRecordingTime().getMonthValue() == month)
+                .filter(record -> record.getRecordTime().getMonthValue() == month)
                 .collect(Collectors.toList());
     }
 
