@@ -1,4 +1,4 @@
-package com.caacetc.gcx.account.config;
+package com.caacetc.gcx.account.infrastructure;
 
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
