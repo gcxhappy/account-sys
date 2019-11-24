@@ -1,12 +1,14 @@
-package com.accaetc.gcx.account.domain;
+package com.caacetc.gcx.account.domain;
+
+import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Repository
 public abstract class Account {
-    protected String accoutName;
     protected List<AccountRecord> accountRecords = new ArrayList<>();
 
     public void addOneRecord(AccountRecord record) {

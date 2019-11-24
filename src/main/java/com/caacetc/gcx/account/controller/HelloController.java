@@ -1,4 +1,4 @@
-package com.accaetc.gcx.account.controller;
+package com.caacetc.gcx.account.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

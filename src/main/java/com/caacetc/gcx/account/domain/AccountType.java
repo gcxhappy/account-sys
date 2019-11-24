@@ -1,4 +1,4 @@
-package com.accaetc.gcx.account.domain;
+package com.caacetc.gcx.account.domain;
 
 public enum AccountType {
     Spending("Spending"),

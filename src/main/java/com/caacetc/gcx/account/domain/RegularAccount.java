@@ -1,12 +1,8 @@
-package com.accaetc.gcx.account.domain;
+package com.caacetc.gcx.account.domain;
 
 import java.math.BigDecimal;
 
 public class RegularAccount extends Account {
-
-    public RegularAccount(String accountName) {
-        this.accoutName = accountName;
-    }
 
     @Override
     public BigDecimal profitBy(int month) {
@@ -25,7 +21,6 @@ public class RegularAccount extends Account {
 
     public void showAllRecords() {
         for (AccountRecord record : accountRecords) {
-            System.out.println("The detail records of " + accoutName + ": ");
             System.out.println(record);
         }
     }
@@ -34,7 +29,7 @@ public class RegularAccount extends Account {
         return accountRecords.stream()
                 .filter(record -> record.getRecordingTime().getMonthValue() == month)
                 .filter(record -> record.getAccountType() == type)
-                .map(record -> record.getAmount())
+                .map(AccountRecord::getAmount)
                 .reduce(BigDecimal.ZERO, (a, b) -> a.add(b));
     }
 }
