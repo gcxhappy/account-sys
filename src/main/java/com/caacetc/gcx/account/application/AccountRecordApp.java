@@ -5,16 +5,17 @@ import com.caacetc.gcx.account.domain.AccountRecord;
 import com.caacetc.gcx.account.domain.AccountRecordMapper;
 import com.caacetc.gcx.account.domain.AccountType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.context.annotation.ApplicationScope;
+import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@Repository
 public class AccountRecordApp extends Account {
     @Autowired
     AccountRecordMapper mapper;
 
-    public List<AccountRecord> qureyAllRecords(){
+    public List<AccountRecord> queryAllRecords() {
         return mapper.queryAllRecords();
     }
 

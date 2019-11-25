@@ -4,9 +4,10 @@ package com.caacetc.gcx.account.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -17,7 +18,8 @@ public class AccountRecord {
     private String contentType;
     private String note;
     private BigDecimal amount;
-    private LocalDate recordTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime recordTime;
 
     @Override
     public String toString() {
