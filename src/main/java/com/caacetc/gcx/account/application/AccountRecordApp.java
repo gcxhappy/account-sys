@@ -20,8 +20,6 @@ public class AccountRecordApp extends Account {
     }
 
     public void addRecord(AccountRecord record){
-        //解决数据存入数据库的时区问题，将时间转换为GMT+8的格式
-        record.setRecordTime(record.getRecordTime().plusHours(8));
         mapper.addRecord(record);
     }
 
