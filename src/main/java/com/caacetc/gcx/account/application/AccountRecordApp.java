@@ -5,12 +5,12 @@ import com.caacetc.gcx.account.domain.AccountRecord;
 import com.caacetc.gcx.account.domain.AccountRecordMapper;
 import com.caacetc.gcx.account.domain.AccountType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-@Repository
+@Service
 public class AccountRecordApp extends Account {
     @Autowired
     AccountRecordMapper mapper;
