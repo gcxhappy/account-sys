@@ -1,4 +1,4 @@
-package com.caacetc.gcx.account.domain;
+package com.caacetc.gcx.domain;
 
 
 import io.swagger.annotations.ApiModel;

@@ -1,4 +1,4 @@
-package com.caacetc.gcx.account;
+package com.caacetc.gcx;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.caacetc.gcx.account;
+package com.caacetc.gcx;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.caacetc.gcx.account.infrastructure;
+package com.caacetc.gcx.infrastructure;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

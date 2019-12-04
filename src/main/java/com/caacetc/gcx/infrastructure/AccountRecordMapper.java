@@ -1,5 +1,6 @@
-package com.caacetc.gcx.account.domain;
+package com.caacetc.gcx.infrastructure;
 
+import com.caacetc.gcx.domain.AccountRecord;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
