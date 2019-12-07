@@ -28,7 +28,6 @@ public class CreatingAccountRecordRequest {
     @ApiModelProperty("金额")
     private BigDecimal amount;
     @ApiModelProperty("记录时间")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime recordTime;
 
     public AccountRecord to() {

@@ -9,13 +9,14 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
 @Service
 public class AccountRecordApplicationService {
     @Autowired
     private AccountRecordService accountRecordService;
+
+    private final String MONTH_ERROR_MSG = "！！！The value of month is illegal！！！";
 
     public List<AccountRecordResponse> queryAllRecords() {
         return accountRecordService.queryAllRecords().stream()
@@ -28,8 +29,8 @@ public class AccountRecordApplicationService {
     }
 
     public BigDecimal incomingBy(int year, int month) throws ApplicationException {
-        if(month > 12 || month < 1){
-            throw new ApplicationException("The value of Month is illegal");
+        if (month > 12 || month < 1) {
+            throw new ApplicationException(MONTH_ERROR_MSG);
         }
         return accountRecordService.queryAllRecords().stream()
                 .map(AccountRecordResponse::from)
@@ -41,8 +42,8 @@ public class AccountRecordApplicationService {
     }
 
     public BigDecimal spendingBy(int year, int month) throws ApplicationException {
-        if(month > 12 || month < 1){
-            throw new ApplicationException("The value of Month is illegal");
+        if (month > 12 || month < 1) {
+            throw new ApplicationException(MONTH_ERROR_MSG);
         }
         return accountRecordService.queryAllRecords().stream()
                 .map(AccountRecordResponse::from)
@@ -54,14 +55,9 @@ public class AccountRecordApplicationService {
     }
 
     public BigDecimal profitBy(int year, int month) throws ApplicationException {
-        if(month > 12 || month < 1){
-            throw new ApplicationException("The value of Month is illegal");
+        if (month > 12 || month < 1) {
+            throw new ApplicationException(MONTH_ERROR_MSG);
         }
-        return accountRecordService.queryAllRecords().stream()
-                .map(AccountRecordResponse::from)
-                .filter(accord -> accord.getRecordTime().getYear() == year)
-                .filter(accord -> accord.getRecordTime().getMonthValue() == month)
-                .map(AccountRecordResponse::getAmount)
-                .reduce(BigDecimal.ZERO, (a, b) -> a.add(b));
+        return incomingBy(year, month).subtract(spendingBy(year, month));
     }
 }

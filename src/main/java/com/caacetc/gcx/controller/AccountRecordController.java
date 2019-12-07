@@ -8,10 +8,12 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -44,7 +46,7 @@ public class AccountRecordController {
             result = applicationService.incomingBy(year, month);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (ApplicationException e) {
-            return new ResponseEntity<>(e.toString(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -56,20 +58,19 @@ public class AccountRecordController {
             result = applicationService.spendingBy(year, month);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (ApplicationException e) {
-            return new ResponseEntity<>(e.toString(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
     @RequestMapping(value = "/queryProfit/year/{year}/month/{month}", method = RequestMethod.GET)
     @ApiOperation("按月份查询收益")
-    @ResponseBody
     public ResponseEntity queryProfitBy(@ApiParam("年份") @PathVariable int year, @ApiParam("月份") @PathVariable int month) {
         BigDecimal result = null;
         try {
             result = applicationService.profitBy(year, month);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (ApplicationException e) {
-            return new ResponseEntity<>(e.toString(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 }
