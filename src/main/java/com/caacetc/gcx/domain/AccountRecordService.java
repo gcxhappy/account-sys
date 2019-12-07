@@ -24,18 +24,4 @@ public class AccountRecordService {
         return mapper.queryAllRecords();
     }
 
-    public BigDecimal incomingBy(int month) {
-        //TODO
-        return null;
-    }
-
-    public BigDecimal spendingBy(int month) {
-        //TODO
-        return null;
-    }
-
-    public BigDecimal profitBy(int month) {
-        //TODO
-        return null;
-    }
 }

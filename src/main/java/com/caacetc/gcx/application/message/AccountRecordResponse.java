@@ -23,6 +23,6 @@ public class AccountRecordResponse {
     private LocalDateTime recordTime;
 
     public static AccountRecordResponse from(AccountRecord record){
-        return new AccountRecordResponse(record.getAccountName(), record.getAccountType(),record.getContentType(),record.getNote(),record.getAmount(),record.getRecordTime())
+        return new AccountRecordResponse(record.getAccountName(), record.getAccountType(),record.getContentType(),record.getNote(),record.getAmount(),record.getRecordTime());
     }
 }

@@ -1,4 +1,4 @@
-package com.caacetc.gcx.infrastructure;
+package com.caacetc.gcx.infrastructure.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,7 +30,7 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())
                 .groupName("GCX")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.caacetc.gcx.account.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.caacetc.gcx.controller"))
                 .build();
     }
 

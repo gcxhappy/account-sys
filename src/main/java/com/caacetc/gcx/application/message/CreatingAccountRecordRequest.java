@@ -2,7 +2,9 @@ package com.caacetc.gcx.application.message;
 
 import com.caacetc.gcx.domain.AccountRecord;
 import com.caacetc.gcx.domain.AccountType;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
@@ -12,6 +14,8 @@ import java.time.LocalDateTime;
  * @author: ganchangxin
  * @create: 2019-12-04 21:21
  **/
+@Data
+@ApiModel("创建账户记录请求类")
 public class CreatingAccountRecordRequest {
     @ApiModelProperty("账户名称")
     private String accountName;
