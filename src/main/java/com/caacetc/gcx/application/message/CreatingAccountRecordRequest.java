@@ -5,7 +5,6 @@ import com.caacetc.gcx.domain.AccountType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -31,6 +30,6 @@ public class CreatingAccountRecordRequest {
     private LocalDateTime recordTime;
 
     public AccountRecord to() {
-        return new AccountRecord(accountName,accountType,contentType,note,amount,recordTime);
+        return new AccountRecord(accountName, accountType, contentType, note, amount, recordTime);
     }
 }

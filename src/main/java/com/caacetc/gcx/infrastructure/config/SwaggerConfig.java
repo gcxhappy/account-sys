@@ -17,11 +17,11 @@ public class SwaggerConfig {
     private ApiInfo apiInfo(){
         return new ApiInfo("GCX的SwaggerAPI文档",
                 "Gan Changxin",
-                "v1.0", "urn:tos",
+                "v1.0", "http://localhost:8080",
                 new Contact("GCX", "", "gcx_happy@163.com"),
                 "Apache 2.0",
                 "http://www.apache.org/licenses/LICENSE-2.0",
-                new ArrayList());
+                new ArrayList<>());
     }
 
     @Bean

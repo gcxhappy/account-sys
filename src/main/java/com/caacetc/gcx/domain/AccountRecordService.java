@@ -4,7 +4,6 @@ import com.caacetc.gcx.infrastructure.AccountRecordMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -14,13 +13,13 @@ import java.util.List;
 @Component
 public class AccountRecordService {
     @Autowired
-    AccountRecordMapper mapper;
+    private AccountRecordMapper mapper;
 
-    public void addRecord(AccountRecord record){
+    public void addRecord(AccountRecord record) {
         mapper.addRecord(record);
     }
 
-    public List<AccountRecord> queryAllRecords(){
+    public List<AccountRecord> queryAllRecords() {
         return mapper.queryAllRecords();
     }
 

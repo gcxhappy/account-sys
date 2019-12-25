@@ -30,7 +30,7 @@ public class RegularAccount extends Account {
                 .filter(record -> record.getRecordTime().getMonthValue() == month)
                 .filter(record -> record.getAccountType() == type)
                 .map(AccountRecord::getAmount)
-                .reduce(BigDecimal.ZERO, (a, b) -> a.add(b));
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }
 

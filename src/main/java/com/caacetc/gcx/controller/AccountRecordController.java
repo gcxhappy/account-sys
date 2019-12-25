@@ -8,12 +8,9 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -40,10 +37,9 @@ public class AccountRecordController {
 
     @RequestMapping(value = "/queryIncome/year/{year}/month/{month}", method = RequestMethod.GET)
     @ApiOperation("按月份查询收入")
-    public ResponseEntity queryIncomeBy(@ApiParam("年份") @PathVariable int year, @ApiParam("月份") @PathVariable int month, Model model) {
-        BigDecimal result = null;
+    public ResponseEntity queryIncomeBy(@ApiParam("年份") @PathVariable int year, @ApiParam("月份") @PathVariable int month) {
         try {
-            result = applicationService.incomingBy(year, month);
+            BigDecimal result = applicationService.incomingBy(year, month);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (ApplicationException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -53,9 +49,8 @@ public class AccountRecordController {
     @RequestMapping(value = "/querySpend/year/{year}/month/{month}", method = RequestMethod.GET)
     @ApiOperation("按月份查询支出")
     public ResponseEntity querySpendBy(@ApiParam("年份") @PathVariable int year, @ApiParam("月份") @PathVariable int month) {
-        BigDecimal result = null;
         try {
-            result = applicationService.spendingBy(year, month);
+            BigDecimal result = applicationService.spendingBy(year, month);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (ApplicationException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -65,9 +60,8 @@ public class AccountRecordController {
     @RequestMapping(value = "/queryProfit/year/{year}/month/{month}", method = RequestMethod.GET)
     @ApiOperation("按月份查询收益")
     public ResponseEntity queryProfitBy(@ApiParam("年份") @PathVariable int year, @ApiParam("月份") @PathVariable int month) {
-        BigDecimal result = null;
         try {
-            result = applicationService.profitBy(year, month);
+            BigDecimal result = applicationService.profitBy(year, month);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (ApplicationException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);

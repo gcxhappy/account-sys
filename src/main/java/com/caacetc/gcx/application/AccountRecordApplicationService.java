@@ -38,7 +38,7 @@ public class AccountRecordApplicationService {
                 .filter(accord -> accord.getRecordTime().getMonthValue() == month)
                 .filter(accord -> accord.getAccountType() == AccountType.Incoming)
                 .map(AccountRecordResponse::getAmount)
-                .reduce(BigDecimal.ZERO, (a, b) -> a.add(b));
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public BigDecimal spendingBy(int year, int month) throws ApplicationException {
@@ -51,7 +51,7 @@ public class AccountRecordApplicationService {
                 .filter(accord -> accord.getRecordTime().getMonthValue() == month)
                 .filter(accord -> accord.getAccountType() == AccountType.Spending)
                 .map(AccountRecordResponse::getAmount)
-                .reduce(BigDecimal.ZERO, (a, b) -> a.add(b));
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public BigDecimal profitBy(int year, int month) throws ApplicationException {
