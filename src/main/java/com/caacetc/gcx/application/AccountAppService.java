@@ -1,60 +1,53 @@
 package com.caacetc.gcx.application;
 
 import com.caacetc.gcx.application.message.AccountRecordResponse;
-import com.caacetc.gcx.application.message.CreatingAccountRecordRequest;
+import com.caacetc.gcx.application.message.AmountResponse;
 import com.caacetc.gcx.domain.AccountRecordService;
 import com.caacetc.gcx.domain.AccountType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.stream.Collectors;
 
+/**
+ * @author: ganchangxin
+ * @create: 2020-01-11 08:05
+ **/
 @Service
-public class AccountRecordApplicationService {
+public class AccountAppService {
+    private final String MONTH_ERROR_MSG = "！！！The value of month is illegal！！！";
     @Autowired
     private AccountRecordService accountRecordService;
 
-    private final String MONTH_ERROR_MSG = "！！！The value of month is illegal！！！";
-
-    public List<AccountRecordResponse> queryAllRecords() {
-        return accountRecordService.queryAllRecords().stream()
-                .map(AccountRecordResponse::from)
-                .collect(Collectors.toList());
-    }
-
-    public void addRecord(CreatingAccountRecordRequest record) {
-        accountRecordService.addRecord(record.to());
-    }
-
-    public BigDecimal incomingBy(int year, int month) throws ApplicationException {
+    public AmountResponse incomingBy(int year, int month) throws ApplicationException {
         if (month > 12 || month < 1) {
             throw new ApplicationException(MONTH_ERROR_MSG);
         }
-        return accountRecordService.queryAllRecords().stream()
+        BigDecimal income = accountRecordService.queryAllRecords().stream()
                 .map(AccountRecordResponse::from)
                 .filter(accord -> accord.getRecordTime().getYear() == year)
                 .filter(accord -> accord.getRecordTime().getMonthValue() == month)
                 .filter(accord -> accord.getAccountType() == AccountType.Incoming)
                 .map(AccountRecordResponse::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+        return new AmountResponse(year, month, income);
     }
 
-    public BigDecimal spendingBy(int year, int month) throws ApplicationException {
+    public AmountResponse spendingBy(int year, int month) throws ApplicationException {
         if (month > 12 || month < 1) {
             throw new ApplicationException(MONTH_ERROR_MSG);
         }
-        return accountRecordService.queryAllRecords().stream()
+        BigDecimal spending = accountRecordService.queryAllRecords().stream()
                 .map(AccountRecordResponse::from)
                 .filter(accord -> accord.getRecordTime().getYear() == year)
                 .filter(accord -> accord.getRecordTime().getMonthValue() == month)
                 .filter(accord -> accord.getAccountType() == AccountType.Spending)
                 .map(AccountRecordResponse::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+        return new AmountResponse(year, month, spending);
     }
 
-    public BigDecimal profitBy(int year, int month) throws ApplicationException {
+    public AmountResponse profitBy(int year, int month) throws ApplicationException {
         if (month > 12 || month < 1) {
             throw new ApplicationException(MONTH_ERROR_MSG);
         }
