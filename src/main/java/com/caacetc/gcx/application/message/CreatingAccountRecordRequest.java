@@ -1,7 +1,8 @@
 package com.caacetc.gcx.application.message;
 
 import com.caacetc.gcx.domain.AccountRecord;
-import com.caacetc.gcx.domain.AccountType;
+import com.caacetc.gcx.domain.enums.ContentType;
+import com.caacetc.gcx.domain.enums.RecordType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -19,7 +20,7 @@ public class CreatingAccountRecordRequest {
     @ApiModelProperty("账户名称")
     private String accountName;
     @ApiModelProperty("记录的类型")
-    private AccountType accountType;
+    private String recordType;
     @ApiModelProperty("账户明细的类型")
     private String contentType;
     @ApiModelProperty("账户明细")
@@ -30,6 +31,6 @@ public class CreatingAccountRecordRequest {
     private LocalDateTime recordTime;
 
     public AccountRecord to() {
-        return new AccountRecord(accountName, accountType, contentType, note, amount, recordTime);
+        return new AccountRecord(accountName, RecordType.valueOf(recordType), ContentType.valueOf(contentType), note, amount, recordTime);
     }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caacetc.gcx.infrastructure.AccountRecordMapper">
+    <select id="queryAllRecords" resultType="AccountRecord">
+        select * from account_record;
+    </select>
+
+    <insert id="addOne" parameterType="AccountRecord">
+        insert into account_record(account_name, account_type, content_type, note, amount, record_time) values
+          (#{accountName}, #{recordType}, #{contentType},#{note},#{amount},#{recordTime});
+    </insert>
+
+<!--    <select id="queryBy" parameterType="Integer" resultMap="AccountRecord">-->
+<!--        select * from account_record where id = #{id};-->
+<!--    </select>-->
+</mapper>

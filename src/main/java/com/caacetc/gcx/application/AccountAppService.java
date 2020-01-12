@@ -3,7 +3,7 @@ package com.caacetc.gcx.application;
 import com.caacetc.gcx.application.message.AccountRecordResponse;
 import com.caacetc.gcx.application.message.AmountResponse;
 import com.caacetc.gcx.domain.AccountRecordService;
-import com.caacetc.gcx.domain.AccountType;
+import com.caacetc.gcx.domain.enums.RecordType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +27,7 @@ public class AccountAppService {
                 .map(AccountRecordResponse::from)
                 .filter(accord -> accord.getRecordTime().getYear() == year)
                 .filter(accord -> accord.getRecordTime().getMonthValue() == month)
-                .filter(accord -> accord.getAccountType() == AccountType.Incoming)
+                .filter(accord -> accord.getRecordType().equals(RecordType.Incoming.toString()))
                 .map(AccountRecordResponse::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
         return new AmountResponse(year, month, income);
@@ -41,7 +41,7 @@ public class AccountAppService {
                 .map(AccountRecordResponse::from)
                 .filter(accord -> accord.getRecordTime().getYear() == year)
                 .filter(accord -> accord.getRecordTime().getMonthValue() == month)
-                .filter(accord -> accord.getAccountType() == AccountType.Spending)
+                .filter(accord -> accord.getRecordType().equals(RecordType.Spending.toString()))
                 .map(AccountRecordResponse::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
         return new AmountResponse(year, month, spending);

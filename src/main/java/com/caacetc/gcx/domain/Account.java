@@ -1,5 +1,6 @@
 package com.caacetc.gcx.domain;
 
+import com.caacetc.gcx.domain.enums.RecordType;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
@@ -27,13 +28,13 @@ public abstract class Account {
 
     public List<AccountRecord> getAllIncomingRecords() {
         return accountRecords.stream()
-                .filter(record -> record.getAccountType() == AccountType.Incoming)
+                .filter(record -> record.getRecordType() == RecordType.Incoming)
                 .collect(Collectors.toList());
     }
 
     public List<AccountRecord> getAllSpendingRecords() {
         return accountRecords.stream()
-                .filter(record -> record.getAccountType() == AccountType.Spending)
+                .filter(record -> record.getRecordType() == RecordType.Spending)
                 .collect(Collectors.toList());
     }
 

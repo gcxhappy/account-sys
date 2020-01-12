@@ -16,7 +16,7 @@ public class AccountRecordService {
     private AccountRecordMapper mapper;
 
     public void addRecord(AccountRecord record) {
-        mapper.addRecord(record);
+        mapper.addOne(record);
     }
 
     public List<AccountRecord> queryAllRecords() {

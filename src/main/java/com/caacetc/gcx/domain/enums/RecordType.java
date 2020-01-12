@@ -1,10 +1,10 @@
-package com.caacetc.gcx.domain;
+package com.caacetc.gcx.domain.enums;
 
-public enum AccountType {
+public enum RecordType {
     Spending("Spending"),
     Incoming("Incoming");
     private String value;
-    AccountType(String value){
+    RecordType(String value){
         this.value = value;
     }
 }
