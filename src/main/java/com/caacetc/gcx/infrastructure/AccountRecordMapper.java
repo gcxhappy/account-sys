@@ -14,5 +14,5 @@ public interface AccountRecordMapper {
 
     void addOne(AccountRecord record);
 
-//    Optional<AccountRecord> queryBy(Integer id);
+    Optional<AccountRecord> queryBy(Integer id);
 }

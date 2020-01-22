@@ -12,7 +12,7 @@
           (#{accountName}, #{recordType}, #{contentType},#{note},#{amount},#{recordTime});
     </insert>
 
-<!--    <select id="queryBy" parameterType="Integer" resultMap="AccountRecord">-->
-<!--        select * from account_record where id = #{id};-->
-<!--    </select>-->
+    <select id="queryBy" parameterType="Integer" resultMap="AccountRecord">
+        select * from account_record where id = #{id};
+    </select>
 </mapper>
