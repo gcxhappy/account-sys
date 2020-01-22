@@ -1,6 +1,7 @@
 package com.caacetc.gcx.domain.enums;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 import org.springframework.util.Assert;
 
 /**
