@@ -8,11 +8,11 @@
     </select>
 
     <insert id="addOne" parameterType="AccountRecord">
-        insert into account_record(account_name, account_type, content_type, note, amount, record_time) values
+        insert into account_record(account_name, record_type, content_type, note, amount, record_time) values
           (#{accountName}, #{recordType}, #{contentType},#{note},#{amount},#{recordTime});
     </insert>
 
-    <select id="queryBy" parameterType="Integer" resultMap="AccountRecord">
+    <select id="queryBy" parameterType="Integer" resultType="AccountRecord">
         select * from account_record where id = #{id};
     </select>
 </mapper>

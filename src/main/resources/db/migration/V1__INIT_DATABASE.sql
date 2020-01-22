@@ -2,7 +2,7 @@ CREATE TABLE `account_record`
 (
     `ID`           int(11) NOT NULL AUTO_INCREMENT,
     `account_name` varchar(20)  DEFAULT NULL,
-    `account_type` varchar(10)  DEFAULT NULL,
+    `record_type` varchar(10)  DEFAULT NULL,
     `content_type` varchar(30)  DEFAULT NULL,
     `note`         varchar(128) DEFAULT NULL,
     `amount`       double       DEFAULT NULL,

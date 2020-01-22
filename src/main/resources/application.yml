@@ -9,3 +9,5 @@ spring:
 mybatis:
   type-aliases-package: com.caacetc.gcx.domain
   mapper-locations: classpath:mybatis/mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
