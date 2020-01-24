@@ -1,6 +1,7 @@
 package com.caacetc.gcx.domain.enums;
 
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.util.Assert;
 
@@ -10,7 +11,7 @@ import org.springframework.util.Assert;
  **/
 public class ContentTypeTest {
     @Test
-    void shoud_transform_enum(){
+    public void shoud_transform_enum(){
         String str = "PAY_MEAL";
         Assert.isTrue(ContentType.valueOf(str).equals(ContentType.PAY_MEAL),"enum转换成功");
     }
