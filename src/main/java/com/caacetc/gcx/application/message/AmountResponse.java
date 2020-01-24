@@ -2,6 +2,7 @@ package com.caacetc.gcx.application.message;
 
 import com.caacetc.gcx.application.ApplicationException;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
@@ -12,6 +13,7 @@ import java.math.BigDecimal;
  **/
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class AmountResponse {
     private int year;
     private int month;

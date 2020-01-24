@@ -19,8 +19,6 @@ target/
 *.iws
 *.iml
 *.ipr
-/.idea/dataSources
-/.idea
 
 ### NetBeans ###
 /nbproject/private/

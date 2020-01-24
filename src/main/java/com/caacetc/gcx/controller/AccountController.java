@@ -12,8 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.math.BigDecimal;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author: ganchangxin
@@ -28,6 +27,7 @@ public class AccountController {
 
     @RequestMapping(value = "/income/year/{year}/month/{month}", method = RequestMethod.GET)
     @ApiOperation("按月份查询收入")
+    @ResponseBody
     public ResponseEntity<?> queryIncomeBy(@ApiParam("年份") @PathVariable int year, @ApiParam("月份") @PathVariable int month) {
         try {
             AmountResponse result = accountService.incomingBy(year, month);
@@ -39,6 +39,7 @@ public class AccountController {
 
     @RequestMapping(value = "/spending/year/{year}/month/{month}", method = RequestMethod.GET)
     @ApiOperation("按月份查询支出")
+    @ResponseBody
     public ResponseEntity<?> querySpendingBy(@ApiParam("年份") @PathVariable int year, @ApiParam("月份") @PathVariable int month) {
         try {
             AmountResponse result = accountService.spendingBy(year, month);
@@ -50,6 +51,7 @@ public class AccountController {
 
     @RequestMapping(value = "/profit/year/{year}/month/{month}", method = RequestMethod.GET)
     @ApiOperation("按月份查询收益")
+    @ResponseBody
     public ResponseEntity<?> queryProfitBy(@ApiParam("年份") @PathVariable int year, @ApiParam("月份") @PathVariable int month) {
         try {
             AmountResponse result = accountService.profitBy(year, month);
