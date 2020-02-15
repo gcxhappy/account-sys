@@ -28,7 +28,7 @@ import java.time.LocalDateTime;
 @Transactional
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class AccountRecordIntegerationTests {
+public class AccountRecordIntegrationTests {
     @Autowired
     private WebApplicationContext wac;
 

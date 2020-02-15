@@ -1,19 +1,18 @@
 package com.caacetc.gcx.domain.enums;
 
 
-import org.junit.Ignore;
 import org.junit.Test;
-import org.springframework.util.Assert;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author: ganchangxin
  * @create: 2020-01-12 17:20
  **/
 public class ContentTypeTest {
-    @Ignore
     @Test
-    public void shoud_transform_enum(){
+    public void should_transform_string_to_enum_success(){
         String str = "PAY_MEAL";
-        Assert.isTrue(ContentType.valueOf(str).equals(ContentType.PAY_MEAL),"enum转换成功");
+        assertThat(ContentType.valueOf(str)).isEqualTo(ContentType.PAY_MEAL);
     }
 }

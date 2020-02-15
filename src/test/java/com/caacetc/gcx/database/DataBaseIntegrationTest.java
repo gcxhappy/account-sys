@@ -25,14 +25,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Transactional
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DataBaseTest {
+public class DataBaseIntegrationTest {
     @Autowired
     private AccountRecordMapper accountRecordMapper;
 
     private AccountRecord record;
 
     @Before
-    public void construct_accountrecord(){
+    public void setup(){
         record = new AccountRecord();
         record.setAccountName("GCX");
         record.setRecordType(RecordType.Spending);
